@@ -33,7 +33,8 @@ app.use(bodyparser.urlencoded({extended: true}));  // help with parsing req body
 var fs = require("fs");
 
 // required for reading XML files
-const dbCon = mysql.createConnection({
+const dbCon = mysql.createPool({
+    connectionLimit: 100,
     host: "us-cdbr-east-03.cleardb.com",
     user: "b084717972b47a",               // replace with the database user provided to you
     password: "69f09248",                  // replace with the database password provided to you
