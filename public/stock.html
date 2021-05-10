@@ -114,19 +114,5 @@
 		xmlhttp.send();
 	 }
   </script>
-	<script>
-		$(document).ready(function(){
-  			$("#logout").click(function(){
-    			 $.get('logout',
-                (data)=> {
-                    if(data.status === 'success') {
-                        window.location.href='login';
-                    } else {
-                        window.alert("Something went wrong");
-                    }
-                });
- 				 });
-				});
-    </script>  
 </body>
 </html>
