@@ -107,8 +107,9 @@
         				console.log(tSeries["2021-05-14"]);
                 var L = mData['3. Last Refreshed'];
                 console.log(tSeries[L]);
+                var current = tSeries[L];
                 document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
-        				document.getElementById('time-Series').innerHTML = JSON.stringify(tSeries);
+        				document.getElementById('time-Series').innerHTML = JSON.stringify(current);
 			           }
 		}
 
