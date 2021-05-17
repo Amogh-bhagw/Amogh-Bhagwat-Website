@@ -104,7 +104,7 @@
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
         				var tSeries = JSON.parse(xmlhttp.responseText)['Time Series (Daily)'];
-        				console.log(tSeries);
+        				console.log(tSeries["2021-05-14"]);
                 var L = "\'" + mData['3. Last Refreshed'] + "\'";
                 console.log(tSeries[L]);
                 document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
