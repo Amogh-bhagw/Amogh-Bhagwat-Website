@@ -105,6 +105,8 @@
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
         				var tSeries = JSON.parse(xmlhttp.responseText)['Time Series (Daily)'];
         				console.log(mData['3. Last Refreshed'])
+                var L = "\'" + mData['3. Last Refreshed'] + "\'";
+                console.log(L);
                 document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
         				document.getElementById('time-Series').innerHTML = JSON.stringify(tSeries);
 			           }
