@@ -17,26 +17,48 @@
         .navbar-default .navbar-nav li a:hover {
             color: white;
         }
+
+        canvas { background: #eee; display: block; margin: 0 auto; }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li><a href="/"><b>Home</b></a></li>
-            <li><a href="/contacts"><b>Contacts</b></a></li>
-            <li><a href="/stock"><b>Stock Page</b></a></li>
-            <li><a href="/logout">
-                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-            </a></li>
-            <li><a onclick="exportContact()">
-                <span class="glyphicon glyphicon glyphicon-share" aria-hidden="true"></span>
-            </a></li>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="/"><b>Home</b></a></li>
+                <li><a href="/contacts"><b>Contacts</b></a></li>
+                <li><a href="/stock"><b>Stock Page</b></a></li>
+                <li><a href="/logout">
+                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                </a></li>
+                <li><a onclick="exportContact()">
+                    <span class="glyphicon glyphicon glyphicon-share" aria-hidden="true"></span>
+                </a></li>
 
-            <li><a id = "userName"><b></b></a></li>
+                <li><a id = "userName"><b></b></a></li>
 
-        </ul>
-    </div>
-</nav>
-<br><br>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
+
+
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+
+    <script>
+	// JavaScript code goes here
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.rect(20, 40, 50, 50);
+        ctx.fillStyle = "#FF0000";
+        ctx.fill();
+        ctx.closePath();
+
+    </script>
+
+
+
+
+
 </body>
