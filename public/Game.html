@@ -6,43 +6,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        .navbar {
-            background-color: #563d7c;
-        }
-
-        .navbar-default .navbar-nav li a {
-            color: #eee;
-        }
-
-        .navbar-default .navbar-nav li a:hover {
-            color: white;
-        }
-
         canvas { background: #eee; display: block; margin: 0 auto; }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <li><a href="/"><b>Home</b></a></li>
-                <li><a href="/contacts"><b>Contacts</b></a></li>
-                <li><a href="/stock"><b>Stock Page</b></a></li>
-                <li><a href="/logout">
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                </a></li>
-                <li><a onclick="exportContact()">
-                    <span class="glyphicon glyphicon glyphicon-share" aria-hidden="true"></span>
-                </a></li>
-
-                <li><a id = "userName"><b></b></a></li>
-
-            </ul>
-        </div>
-    </nav>
-    <br><br>
-
-
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
     <script>
