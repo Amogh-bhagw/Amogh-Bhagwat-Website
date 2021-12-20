@@ -13,13 +13,25 @@
       color: #ffffff;
     }
     .bg-2 {
-      background-color: beige;
+      background-color: black;
       color: #ffffff;
     }
     .bg-3 {
       background-color: lime;
       color: #ffffff;
     }
+    .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    body {
+      font: 20px "Montserrat", sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+    } 
+
+    p {font-size: 16px;}
   </style>
 </head>
 <body>
@@ -28,6 +40,9 @@
   <h3>Who Am I?</h3>
   <img src="TBD.webp"class="img-circle" alt="Bird">
   <h3>I'm an adventurer</h3>
+  <button id="myButton" type="button" class="btn btn-primary btn-block" onclick="location.href ='/login'">
+    Navigate to website
+</button>
 </div>
 
 <div class = "container-fluid bg-2 text-center">
@@ -40,9 +55,6 @@
     <p href= "youtube.com">Click</p>
 </div>"
 
-<button id="myButton" type="button" class="btn btn-primary btn-block" onclick="location.href ='/login'">
-    Navigate to website
-</button>
 
 </body>
 </html>
