@@ -9,15 +9,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     .bg-1 {
-      background-color: aquamarine;
+      background-color: grey;
       color: #ffffff;
     }
     .bg-2 {
-      background-color: black;
+      background-color: darkorchid;
       color: #ffffff;
     }
     .bg-3 {
-      background-color: lime;
+      background-color: grey;
       color: #ffffff;
     }
     .container-fluid {
@@ -35,6 +35,21 @@
   </style>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Me</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href='/login'>Website</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 <div class="container-fluid bg-1 text-center">
   <h3>Who Am I?</h3>
