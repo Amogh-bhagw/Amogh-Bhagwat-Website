@@ -60,7 +60,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
 
     
     app.get('/', function (req, res) {
-        res.sendFile(path.join(__dirname, 'public/BootStrap/index.html'));
+        res.sendFile(path.join(__dirname, 'public/welcome.html'));
     });
     
 
