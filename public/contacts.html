@@ -141,7 +141,7 @@
         .append(`<td><input type='text' /></td>`)
         .append(`<td><select name="category"><option>Personal</option><option>Academic</option><option>Industry</option></select></td>`)
         .append(`<td><input type='text' /></td>`)
-        .append(`<td><input type='email' /></td>`)
+        .append(`<td><input type='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" /></td>`)
         .append(`<td><input type='text' /></td>`)
         .append(`<td><input type='url' /></td>`)
         .append($('<td></td>').append(saveBtn).append('&emsp;').append(cancelBtn));
