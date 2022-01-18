@@ -30,9 +30,7 @@
             <li><a href="/logout">
                 <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
             </a></li>
-            <li><a onclick="exportContact()">
-                <span class="glyphicon glyphicon glyphicon-share" aria-hidden="true"></span>
-            </a></li>
+            
 
             <li><a id = "userName"><b></b></a></li>
 
@@ -141,7 +139,7 @@
         .append(`<td><input type='text' /></td>`)
         .append(`<td><select name="category"><option>Personal</option><option>Academic</option><option>Industry</option></select></td>`)
         .append(`<td><input type='text' /></td>`)
-        .append(`<td><input type='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" /></td>`)
+        .append(`<td><input type='email' /></td>`)
         .append(`<td><input type='text' /></td>`)
         .append(`<td><input type='url' /></td>`)
         .append($('<td></td>').append(saveBtn).append('&emsp;').append(cancelBtn));
@@ -191,9 +189,15 @@
 			
         console.log("cat:",valCat);
 
+        // to check if email follows pattern
         var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
         var emailResult = pattern.test(valEmail);
-        alert("email: "+ emailResult);
+        pattern = https://.*;
+        var websiteResult = pattern.test(valWeb);
+        alert(websiteResult);
+        alert(emailResult);
+
+
         if (mode == 'insert') {
           // Check if name, category, location, (or any field) is empty
           console.log('inserting');
@@ -208,6 +212,8 @@
             emptyMessage.push('Info field is required. ');
           if (!valEmail)
             emptyMessage.push('Email field is required. ');
+          if(!emailResult)
+            emptyMessage.push('Enter vaild email address, which inculdes an \'@\' and a \'.\' ');
           if (!valWeb)
             emptyMessage.push('Website field is required. ');
 
