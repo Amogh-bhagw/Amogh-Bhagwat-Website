@@ -177,7 +177,7 @@
       return function() {
         console.log("saving");
         console.log("Below is ActualName");
-	console.log(ActualName);
+	      console.log(ActualName);
 		
         let tr = $(this).parent().parent(), tds = tr.children();
         let tdName = tds[0], tdCat = tds[1], tdLoc = tds[2], tdInfo = tds[3], tdEmail = tds[4] , tdWeb = tds[5] , tdBtn = tds[6];
@@ -190,7 +190,10 @@
             valWeb = $(tdWeb).children("input").val();
 			
         console.log("cat:",valCat);
-		
+
+        var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        var emailResult = pattern.test(valEmail);
+        alert("email: "+ emailResult);
         if (mode == 'insert') {
           // Check if name, category, location, (or any field) is empty
           console.log('inserting');
