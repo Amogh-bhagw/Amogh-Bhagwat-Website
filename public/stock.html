@@ -93,6 +93,8 @@
     </table>
   </div>
 
+  <h1 id="Crypto-price">---</h1>
+
   <script>
     function processStocksJson(){
         		var xmlhttp = new XMLHttpRequest();
@@ -116,6 +118,19 @@
 		xmlhttp.open("GET",url,true);
 		xmlhttp.send();
 	 }
+
+   let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
+   let stockPriceElement = document.getElementById('Crypto-price');
+   let lastPrice = null;
+   ws.onmessage = (event) => {
+     let stockObject = JSON.parse(event.data);
+     console.log(event.data);
+     let price = parseFloat(stockObject.p).toFixed(2);
+     stockPriceElement.innerHTML = price;
+     
+     stockPriceElement.style.color = !lastPrice || lastPrice == price ? 'black': price > lastPrice ? "green":"red";
+     lastPrice = price;
+   };
   </script>
 </body>
 </html>
