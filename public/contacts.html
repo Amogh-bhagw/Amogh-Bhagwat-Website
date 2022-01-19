@@ -292,12 +292,13 @@
       if(!emailResult) {
         let emptyMessage2 = [];
         emptyMessage2.push('Enter vaild email address, which inculdes an \'@\' and a \'.\' ');
-          $('#emptyFieldErrorMessage').children('b').html(emptyMessage);
+          $('#emptyFieldErrorMessage').children('b').html(emptyMessage2);
           $('#emptyFieldErrorMessage').show();
+          location.reload();
         return;
       }
 
-      
+
     	return function() {
     	 console.log("function editContact()");
     	 var tr2 = $(this).parent().parent();
