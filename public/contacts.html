@@ -287,7 +287,17 @@
     }
     
     function editContact(name, category, location, contact_info, email, website){
-        	
+      var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      var emailResult = pattern.test(email);
+      if(!emailResult) {
+        let emptyMessage2 = [];
+        emptyMessage2.push('Enter vaild email address, which inculdes an \'@\' and a \'.\' ');
+          $('#emptyFieldErrorMessage').children('b').html(emptyMessage);
+          $('#emptyFieldErrorMessage').show();
+        return;
+      }
+
+      
     	return function() {
     	 console.log("function editContact()");
     	 var tr2 = $(this).parent().parent();
