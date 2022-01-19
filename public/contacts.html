@@ -296,7 +296,9 @@
           $('#emptyFieldErrorMessage').show();
           location.reload();
         return;
-      }
+      } else {
+            $('#emptyFieldErrorMessage').hide();
+          }
 
 
     	return function() {
