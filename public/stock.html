@@ -109,12 +109,24 @@
       </tbody>
     </table>
   </div>
-  <table>
-    <tr>
-      <td id="Crypto-price"></td>
-    </tr>
-  </table>
 
+  <div class="container">
+    <table class="table" id="StockData">
+      <thead>
+        <tr>
+          <th scope="col">Company-MetaData</th>
+          <th scope="col">Stock-Info</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<tr>
+      		<td id = "Crypto-price"></td>
+      	</tr>
+
+      </tbody>
+    </table>
+  </div>
+  
   <script>
     function processStocksJson(){
         		var xmlhttp = new XMLHttpRequest();
