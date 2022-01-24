@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   <style>
       textarea {
           width: 100%;
@@ -153,6 +154,7 @@
 	 }
 
    let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
+ //  let ws2 = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
    let stockPriceElement = document.getElementById('Crypto-price');
    let lastPrice = null;
    ws.onmessage = (event) => {
