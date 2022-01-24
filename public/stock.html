@@ -134,14 +134,20 @@
         		var apikey = "BVFQUSMI02E68A8Z";
             var company = document.getElementById('Company').value;
         		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
 
+            today = yyyy + '-' + mm + '-' + dd;
 
     async function processStocksJson(){
+
         	  const response = await fetch(url);
             const data = await response.json();
             console.log(data['Meta Data']["1. Information"]);
             console.log(data['Meta Data']["2. Symbol"]);
-            console.log(data['Time Series (Daily)']);
+            console.log(data['Time Series (Daily)'][]);
 
         	/*	xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
