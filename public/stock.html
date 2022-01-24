@@ -139,7 +139,7 @@
     async function processStocksJson(){
         	  const response = await fetch(url);
             const data = await response.json();
-            console.log(data);
+            console.log(data['Meta Data']);
         	/*	xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
