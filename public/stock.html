@@ -145,9 +145,12 @@
                 var L = mData['3. Last Refreshed'];
                 console.log(tSeries[L]);
                 var current = tSeries[L];
-                document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
-        				document.getElementById('time-Series').innerHTML = JSON.stringify(current);
-			           }
+               // document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
+        			//	document.getElementById('time-Series').innerHTML = JSON.stringify(current);
+                 var message = "";
+                  message += tSeries["1. open"];
+                  document.getElementById('time-Series').innerHTML = message;
+			          }
 		}
 
 		xmlhttp.open("GET",url,true);
