@@ -130,13 +130,17 @@
   </div>
 
   <script>
-    function processStocksJson(){
-        		var xmlhttp = new XMLHttpRequest();
+          	var xmlhttp = new XMLHttpRequest();
         		var apikey = "BVFQUSMI02E68A8Z";
             var company = document.getElementById('Company').value;
         		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
 
-        		xmlhttp.onreadystatechange = function() {
+
+    async function processStocksJson(){
+        	  const response = await fetch(url);
+            const data = await response.json();
+            console.log(data);
+        	/*	xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
         				var tSeries = JSON.parse(xmlhttp.responseText)['Time Series (Daily)'];
@@ -147,11 +151,11 @@
                 console.log(JSON.stringify(mData));
                 document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
         				document.getElementById('time-Series').innerHTML = JSON.stringify(current);
-			           }
-		}
+			           }*/
+		//}
 
-		xmlhttp.open("GET",url,true);
-		xmlhttp.send();
+		//xmlhttp.open("GET",url,true);
+		//xmlhttp.send();
 	 }
 
    let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
@@ -160,7 +164,6 @@
    let lastPrice = null;
    ws.onmessage = (event) => {
      let stockObject = JSON.parse(event.data);
-     console.log(event.data);
      let price = parseFloat(stockObject.p).toFixed(2);
      stockPriceElement.innerHTML = price;
      
