@@ -145,7 +145,7 @@
         	  const response = await fetch(url);
             const data = await response.json();
             console.log(data);
-            //console.log(data['Meta Data']["1. Information"]);
+            var l1 = (data['Meta Data'][0]);
             //console.log(data['Meta Data']["2. Symbol"]);
             //console.log(data['Time Series (Daily)'][today]);
             document.getElementById('time-Series').innerHTML = "Hello";
