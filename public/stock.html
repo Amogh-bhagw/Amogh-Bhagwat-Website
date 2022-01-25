@@ -136,7 +136,7 @@
 
     async function processStocksJson(){
 
-        	  const response = await fetch(url);
+        	  /*const response = await fetch(url);
             const data = await response.json();
             console.log(data);
             var l1 = data['Meta Data'];
@@ -144,7 +144,7 @@
             var today = l1['3. Last Refreshed'];
             var l3 = l2[today];
             console.log(l3);
-            console.log(l1);
+            console.log(l1);*/
 
             /*var my_json = JSON.stringify(l1);
             var parsed_obj = JSON.parse(my_json);
@@ -157,7 +157,7 @@
             //console.log(data['Time Series (Daily)'][today]);
             //document.getElementById('meta-Data').innerHTML = parsed_obj["1. Information"];
 
-        	/*	xmlhttp.onreadystatechange = function() {
+        		xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
         				var tSeries = JSON.parse(xmlhttp.responseText)['Time Series (Daily)'];
@@ -165,14 +165,19 @@
                 var L = mData['3. Last Refreshed'];
                 
                 var current = tSeries[L];
-                console.log(JSON.stringify(mData));
-                document.getElementById('meta-Data').innerHTML = JSON.stringify(mData);
-        				document.getElementById('time-Series').innerHTML = JSON.stringify(current);
-			           }*/
-		//}
+                var metaD = JSON.stringify(mData);
+                var metaDS = JSON.parse(metaD);
 
-		//xmlhttp.open("GET",url,true);
-		//xmlhttp.send();
+                var str = "<td>" + metaDS["1. Information"] + "</td>" +
+                          "<td>" + meta["2. Symbol"] + "</td>";
+
+                document.getElementById('meta-Data').innerHTML = str; 
+        				document.getElementById('time-Series').innerHTML = JSON.stringify(current);
+			           }
+	      }
+
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send();
 	 }
 
    let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
