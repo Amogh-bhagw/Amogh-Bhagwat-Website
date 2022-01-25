@@ -129,12 +129,13 @@
   </div>
 
   <script>
-          	var xmlhttp = new XMLHttpRequest();
+          
+
+    function processStocksJson(){
+            var xmlhttp = new XMLHttpRequest();
         		var apikey = "BVFQUSMI02E68A8Z";
             var company = document.getElementById('Company').value;
         		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
-
-    function processStocksJson(){
         xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
@@ -151,7 +152,7 @@
 
                 document.getElementById('meta-Data').innerHTML = str; 
         				document.getElementById('time-Series').innerHTML = current["1. open"];
-			           }
+			        }
         	  /*const response = await fetch(url);
             const data = await response.json();
             console.log(data);
