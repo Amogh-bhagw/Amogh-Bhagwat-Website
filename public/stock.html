@@ -134,30 +134,8 @@
             var company = document.getElementById('Company').value;
         		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
 
-    async function processStocksJson(){
-
-        	  /*const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            var l1 = data['Meta Data'];
-            var l2 = data['Time Series (Daily)'];
-            var today = l1['3. Last Refreshed'];
-            var l3 = l2[today];
-            console.log(l3);
-            console.log(l1);*/
-
-            /*var my_json = JSON.stringify(l1);
-            var parsed_obj = JSON.parse(my_json);
-            console.log(my_json);
-            console.log(parsed_obj["2. Symbol"]);
-            console.log(parsed_obj["1. Information"]);*/
-
-            
-            //console.log(data['Meta Data']["2. Symbol"]);
-            //console.log(data['Time Series (Daily)'][today]);
-            //document.getElementById('meta-Data').innerHTML = parsed_obj["1. Information"];
-
-        		xmlhttp.onreadystatechange = function() {
+    function processStocksJson(){
+        xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
         				var tSeries = JSON.parse(xmlhttp.responseText)['Time Series (Daily)'];
@@ -174,6 +152,17 @@
                 document.getElementById('meta-Data').innerHTML = str; 
         				document.getElementById('time-Series').innerHTML = current["1. open"];
 			           }
+        	  /*const response = await fetch(url);
+            const data = await response.json();
+            console.log(data);
+            var l1 = data['Meta Data'];
+            var l2 = data['Time Series (Daily)'];
+            var today = l1['3. Last Refreshed'];
+            var l3 = l2[today];
+            console.log(l3);
+            console.log(l1);
+            var my_json = JSON.stringify(l1);
+            var parsed_obj = JSON.parse(my_json);*/
 	      }
 
 		xmlhttp.open("GET",url,true);
