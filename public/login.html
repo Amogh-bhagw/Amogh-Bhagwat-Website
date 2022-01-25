@@ -21,6 +21,7 @@
     <h1>Login Page</h1>
     <p>Please enter your user name and password. Both are case sensitive</p>
 </div>
+    <p1 id = "errorMsg" style = " text-align: center; display:none; color: red;">"Incorrect username and/or password"</p1><br>
     <form id = "myForm" name = "myForm" style = "text-align: center">
         <div>
             <label for="login">Login:</label>
@@ -30,7 +31,6 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
         </div>
-        <p1 id = "errorMsg" style = " text-align: center; display:none; color: red;">"Incorrect username and/or password"</p1><br>
         <input type="submit"value="Submit!">
         <div>
             <p onclick="ChangeVis()">Forgot Password or Username?</p>
