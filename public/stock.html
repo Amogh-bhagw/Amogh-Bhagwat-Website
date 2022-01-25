@@ -151,11 +151,8 @@
             var my_json = JSON.stringify(l1);
             var parsed_obj = JSON.parse(my_json);
             console.log(my_json);
+            console.log(parsed_obj["2. Symbol"]);
             console.log(parsed_obj["1. Information"]);
-
-            var tSeries = JSON.stringify(['Time Series (Daily)'][today]);
-            var parsed_t = JSON.parse(tSeries);
-            console.log(parsed_t); // PROBLEM here undefined
 
             
             //console.log(data['Meta Data']["2. Symbol"]);
