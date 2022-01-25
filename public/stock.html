@@ -154,8 +154,8 @@
             console.log(parsed_obj["1. Information"]);
 
             var tSeries = JSON.stringify(['Time Series (Daily)'][today]);
-            tSeries = JSON.parse(tSeries);
-            console.log(tSeries["1 open"]);
+            var parsed_t = JSON.parse(tSeries);
+            console.log(parsed_t["1. open"]);
 
             
             //console.log(data['Meta Data']["2. Symbol"]);
