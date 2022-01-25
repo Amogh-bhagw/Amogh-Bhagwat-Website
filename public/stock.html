@@ -145,10 +145,11 @@
 
         	  const response = await fetch(url);
             const data = await response.json();
-            console.log(data['Meta Data']["1. Information"]);
-            console.log(data['Meta Data']["2. Symbol"]);
-            console.log(data['Time Series (Daily)'][today]);
-            document.getElementById('time-Series').innerHTML = ['Time Series (Daily)'][today].toString();
+            console.log(data);
+            //console.log(data['Meta Data']["1. Information"]);
+            //console.log(data['Meta Data']["2. Symbol"]);
+            //console.log(data['Time Series (Daily)'][today]);
+            document.getElementById('time-Series').innerHTML = ['Time Series (Daily)'][today]["1. open"];
 
         	/*	xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
