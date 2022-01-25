@@ -133,28 +133,20 @@
         		var apikey = "BVFQUSMI02E68A8Z";
             var company = document.getElementById('Company').value;
         		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
-
-            today = yyyy + '-' + mm + '-' + dd;
 
     async function processStocksJson(){
 
         	  const response = await fetch(url);
             const data = await response.json();
             console.log(data);
+            var l1 = data['Meta Data'];
+            var l2 = data['Time Series (Daily)'];
+            var today = l1['3. Last Refreshed'];
+            var l2 = l2[today];
+            console.log(l3);
+            console.log(l1);
 
-            var l2 = data['Time Series (Daily)'][today];
-            var my_json = JSON.stringify(l2);
-            var parsed_obj = JSON.parse(my_json);
-            console.log(my_json);
-            console.log(parsed_obj);
-
-
-           /* var l1 = data['Meta Data'];
-            var my_json = JSON.stringify(l1);
+            /*var my_json = JSON.stringify(l1);
             var parsed_obj = JSON.parse(my_json);
             console.log(my_json);
             console.log(parsed_obj["2. Symbol"]);
@@ -163,7 +155,7 @@
             
             //console.log(data['Meta Data']["2. Symbol"]);
             //console.log(data['Time Series (Daily)'][today]);
-            document.getElementById('meta-Data').innerHTML = parsed_obj["1. Information"];
+            //document.getElementById('meta-Data').innerHTML = parsed_obj["1. Information"];
 
         	/*	xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
