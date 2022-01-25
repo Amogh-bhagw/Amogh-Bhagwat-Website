@@ -145,8 +145,12 @@
         	  const response = await fetch(url);
             const data = await response.json();
             console.log(data);
-            var l1 = (data['Meta Data'][0]);
+            var l1 = data['Meta Data'];
             console.log(l1);
+            var my_json = JSON.stringify(l1);
+            var parsed_obj = JSON.parse(my_json);
+            console.log(my_json);
+            console.log(parsed_obj);
             //console.log(data['Meta Data']["2. Symbol"]);
             //console.log(data['Time Series (Daily)'][today]);
             document.getElementById('time-Series').innerHTML = "Hello";
