@@ -146,13 +146,19 @@
             const data = await response.json();
             console.log(data);
 
+            var l2 = data['Time Series (Daily)'][today];
+            var my_json = JSON.stringify(l1);
+            var parsed_obj = JSON.parse(my_json);
+            console.log(my_json);
+            console.log(parsed_obj);
 
-            var l1 = data['Meta Data'];
+
+           /* var l1 = data['Meta Data'];
             var my_json = JSON.stringify(l1);
             var parsed_obj = JSON.parse(my_json);
             console.log(my_json);
             console.log(parsed_obj["2. Symbol"]);
-            console.log(parsed_obj["1. Information"]);
+            console.log(parsed_obj["1. Information"]);*/
 
             
             //console.log(data['Meta Data']["2. Symbol"]);
