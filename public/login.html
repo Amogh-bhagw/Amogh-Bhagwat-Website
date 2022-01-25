@@ -33,7 +33,7 @@
         <p1 id = "errorMsg" style = " text-align: center; display:none; color: red;">"Incorrect username and/or password"</p1><br>
         <input type="submit"value="Submit!">
         <div>
-            <p onclick="ChangeVis()">Forgot Password or Username</p>
+            <p onclick="ChangeVis()">Forgot Password or Username?</p>
             <p id = "Code" style="visibility: hidden;">Username: amogh Password: salsa</p>
         </div>
     </form>
@@ -43,10 +43,10 @@
         var changer = 1;
         function ChangeVis() {
             if(changer == 1){
-                document.getElementById('Code').style.visibility = visible;
+                document.getElementById('Code').style.visibility = "visible";
                 changer = 0;
             } else {
-                document.getElementById('Code').style.visibility = hidden;
+                document.getElementById('Code').style.visibility = "hidden";
                 changer = 1;
             }
         }
