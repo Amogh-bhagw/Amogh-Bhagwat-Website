@@ -147,11 +147,17 @@
                 var metaDS = JSON.parse(metaD);
                 console.log(current);
 
-                var str = "<td>" + metaDS["1. Information"] + "</td>" +
-                          "<br><td>" + metaDS["2. Symbol"] + "</td>";
+                var str = "<td>Date: " + metaDS["3. Last Refreshed"] + "</td>" +
+                          "<br><td>Symbol: " + metaDS["2. Symbol"] + "</td>";
+
+                var str2 = "<td>1. open: " + current["1. open"] + "</td>" +
+                          "<br><td>2. high: " + current["2. high"] + "</td>"+
+                          "<br><td>3. low: " + current["3. low"] + "</td>" + 
+                          "<br><td>4. close: " + current["4. close"] + "</td>" +
+                          "<br><td>5. volume: " + current["5. volume"] + "</td>";
 
                 document.getElementById('meta-Data').innerHTML = str; 
-        				document.getElementById('time-Series').innerHTML = current["1. open"];
+        				document.getElementById('time-Series').innerHTML = str2;
 			        }
         	  /*const response = await fetch(url);
             const data = await response.json();
