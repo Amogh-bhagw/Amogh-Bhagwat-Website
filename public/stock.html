@@ -145,9 +145,9 @@
                 var current = tSeries[L];
                 var metaD = JSON.stringify(mData);
                 var metaDS = JSON.parse(metaD);
-                console.log(current);
+                console.log(metaDS);
 
-                var str = "<td>Date: " + metaDS["3. Last Refreshed"] + "</td>" +
+                var str = "<td>Last Refreshed: " + metaDS["3. Last Refreshed"] + "</td>" +
                           "<br><td>Symbol: " + metaDS["2. Symbol"] + "</td>";
 
                 var str2 = "<td>1. open: " + current["1. open"] + "</td>" +
