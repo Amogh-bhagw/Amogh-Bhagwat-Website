@@ -114,7 +114,7 @@
     <table class="table" id="StockData">
       <thead>
         <tr>
-          <th scope="col">Company</th>
+          <th scope="col">Crypto-Name</th>
           <th scope="col">Crypto-Price</th>
         </tr>
       </thead>
@@ -183,7 +183,7 @@
    ws.onmessage = (event) => {
      let stockObject = JSON.parse(event.data);
      let price = parseFloat(stockObject.p).toFixed(2);
-     stockPriceElement.innerHTML = price;
+     stockPriceElement.innerHTML ="€"+ price;
      
      stockPriceElement.style.color = !lastPrice || lastPrice == price ? 'black': price > lastPrice ? "green":"red";
      lastPrice = price;
