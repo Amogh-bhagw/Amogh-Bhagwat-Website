@@ -183,8 +183,7 @@
       console.log("I am inside the get");
       $.get('username', function(data, status){
         var obj = JSON.parse(data);
-        var usernameArray = obj.res.contacts;
-          alert(usernameArray.name + " " + status);
+          alert(obj + " " + status);
       });
    });
 
