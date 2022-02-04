@@ -166,12 +166,14 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             if(err){
                 throw err;
             }
-            console.log("Cali");
-            console.log(results);
-            
             var userArray = [];
-            console.log(results[0].acc_name);
-            res.send("Hello");
+            var obj = {};
+            obj['name'] = results[0].acc_name;
+            userArray.push(obj);
+            var returnObj = {"contacts": userArray};
+            var responseMsg = {res:returnObj};
+            var responseMsg = JSON.stringify(responseMsg);
+            res.send(responseMsg);
         });
     });
 
