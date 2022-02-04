@@ -184,10 +184,8 @@
 
       $.get('username').done(function(data, status){
         var obj = JSON.parse(data);
-        var username  = (obj.res.name).toLowerCase();
-        console.log(username);	
+        var username  = (obj.res.name).toUpperCase();
         document.getElementById("username").innerHTML = username;
-        console.log(username);
       });
    });
 

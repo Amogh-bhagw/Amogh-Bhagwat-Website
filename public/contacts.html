@@ -97,8 +97,8 @@
         var ActualName;
 
     function formTable(contacts) {
-    	console.log("HERE is the contact login");
-	console.log(contacts);
+    	//console.log("HERE is the contact login");
+	    //console.log(contacts);
         contacts.forEach((data) => {
             let updateBtn = $('<span></span>')
             .attr('class', 'btnEdit glyphicon glyphicon-pencil')
@@ -116,7 +116,7 @@
         .append($('<td></td>').append(updateBtn).append('&emsp;').append(deleteBtn));
 
             $('#contactsTable tr:last').after(row);
-            document.getElementById("userName").innerHTML = data.username;
+            document.getElementById("userName").innerHTML = (data.username).toUpperCase();
         });
     }
 
