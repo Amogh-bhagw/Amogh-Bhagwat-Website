@@ -166,6 +166,9 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             if(err){
                 throw err;
             }
+            console.log("Cali");
+            console.log(results);
+            
             var userArray = [];
             console.log(results[0].acc_name);
             res.send("Hello");
