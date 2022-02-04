@@ -161,6 +161,19 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
         });
     });
 
+    app.get('/username', function(req,res){
+        dbCon.query('SELECT acc_name FROM tbl_accounts', function(err, rows, fields){
+            if(err){
+                throw err;
+            }
+            var userArray = [];
+            for (var i = 0; i < rows.length; i++){
+                console.log(rows[i].acc_name);
+            }
+            res.send("Hello");
+        });
+    });
+
     app.post('/updateContact', function(req, res) {
     	if(!req.session.value) {
             res.redirect(302, '/login');

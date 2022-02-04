@@ -178,6 +178,14 @@
      stockPriceElement.style.color = !lastPrice || lastPrice == price ? 'black': price > lastPrice ? "green":"red";
      lastPrice = price;
    };
+
+   $(document).ready(function(){
+      console.log("I am inside the get");
+      $.get('username', function(data, status){
+          alert(data + " " + status);
+      });
+   });
+
   </script>
 </body>
 </html>
