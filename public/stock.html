@@ -46,6 +46,7 @@
             <li><a href="/logout">
                 <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
             </a></li>
+            <li id="username"></li>
         </ul>
     </div>
 </nav>
@@ -183,8 +184,9 @@
       console.log("I am inside the get");
       $.get('username', function(data, status){
         var obj = JSON.parse(data);
-        console.log(obj.res.name);	
-          alert(data + " " + status);
+        var username  = (obj.res.name).toLowerCase();
+        console.log(username);	
+          $("#username").innerHTML = username;
       });
    });
 
