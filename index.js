@@ -170,7 +170,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             for (var i = 0; i < rows.length; i++){
                 console.log(rows[i].acc_name);
             }
-            res.send("Hello");
+            res.send(rows[i].acc_name);
         });
     });
 
