@@ -184,7 +184,7 @@
       $.get('username', function(data, status){
         var obj = JSON.parse(data);
         var usernameArray = obj.res.contacts;
-          alert(usernameArray + " " + status);
+          alert(usernameArray.name + " " + status);
       });
    });
 
