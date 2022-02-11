@@ -131,6 +131,7 @@
 
   <script>
     async function GraphingData(value){
+      console.log("HELLO ");
       var apikey = "BVFQUSMI02E68A8Z";
       var company = value;
       var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey + '&datatype=csv';
@@ -157,7 +158,6 @@
                 var current = tSeries[L];
                 var metaD = JSON.stringify(mData);
                 var metaDS = JSON.parse(metaD);
-                console.log(metaDS);
 
                 var str = "<td>Last Refreshed: " + metaDS["3. Last Refreshed"] + "</td>" +
                           "<br><td>Symbol: " + metaDS["2. Symbol"] + "</td>";
