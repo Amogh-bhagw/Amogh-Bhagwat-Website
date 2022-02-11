@@ -166,11 +166,8 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             if(err){
                 throw err;
             }
-            //var userArray = [];
             var obj = {};
             obj['name'] = results[0].acc_name;
-            //userArray.push(obj);
-            //var returnObj = {"contacts": userArray};
             var responseMsg = {res:obj};
             var responseMsg = JSON.stringify(responseMsg);
             res.send(responseMsg);

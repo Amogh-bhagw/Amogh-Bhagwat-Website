@@ -130,6 +130,16 @@
   </div>
 
   <script>
+    async function GraphingData(value){
+      var apikey = "BVFQUSMI02E68A8Z";
+      var company = value;
+      var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey + '&datatype=csv';
+    //  https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv
+      const response = await fetch(url);
+      const data = await response.text();
+      console.log(data);
+
+    }
           
 
     function processStocksJson(){
@@ -137,6 +147,7 @@
         		var apikey = "BVFQUSMI02E68A8Z";
             var company = document.getElementById('Company').value;
         		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
+            GraphingData(company);
         xmlhttp.onreadystatechange = function() {
         			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
@@ -168,7 +179,6 @@
 	 }
 
    let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
- //  let ws2 = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
    let stockPriceElement = document.getElementById('Crypto-price');
    let lastPrice = null;
    ws.onmessage = (event) => {
