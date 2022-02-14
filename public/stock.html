@@ -138,7 +138,8 @@
     //  https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv
       const response = await fetch(url);
       const data = await response.text();
-      console.log(data);
+      const table = data.split('\n');
+      console.log(table);
 
     }
           
