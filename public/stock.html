@@ -1,210 +1,295 @@
 ﻿<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-  <style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
       textarea {
-          width: 100%;
-          min-height: 30rem;
-          background-color: black;
-          font-family: "Lucida Console", Monaco, monospace;
-          font-size: 0.75 rem;
-          line-height: 1.2;
-          color: #fff;
+        width: 100%;
+        min-height: 30rem;
+        background-color: black;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 0.75 rem;
+        line-height: 1.2;
+        color: #fff;
       }
+
       .navbar {
-            background-color: #563d7c;
-        }
+        background-color: #563d7c;
+      }
 
-        .navbar-default .navbar-nav li a {
-            color: #eee;
-        }
+      .navbar-default .navbar-nav li a {
+        color: #eee;
+      }
 
-        .navbar-default .navbar-nav li a:hover {
-            color: white;
-        }
-        #Crypto-price {
-          align-items: center;
-          font: 20px "Montserrat", sans-serif;
+      .navbar-default .navbar-nav li a:hover {
+        color: white;
+      }
 
-        }
-  </style>
-</head>
+      #Crypto-price {
+        align-items: center;
+        font: 20px "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
 
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li><a href="/"><b>Home</b></a></li>
-            <li><a href="/contacts"><b>Contacts</b></a></li>
-            <li><a href="/stock"><b>Stock Page</b></a></li>
-            <li><a href="/logout">
-                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-            </a></li>
-            <li><a id="username"><b></b></a></li>
+          <li>
+            <a href="/"><b>Home</b></a>
+          </li>
+          <li>
+            <a href="/contacts"><b>Contacts</b></a>
+          </li>
+          <li>
+            <a href="/stock"><b>Stock Page</b></a>
+          </li>
+          <li>
+            <a href="/logout">
+              <span
+                class="glyphicon glyphicon-log-out"
+                aria-hidden="true"
+              ></span>
+            </a>
+          </li>
+          <li>
+            <a id="username"><b></b></a>
+          </li>
         </ul>
-    </div>
-</nav>
-<br><br>
+      </div>
+    </nav>
+    <br /><br />
 
-  <div class="container">
-    <div class="panel panel-default">
-      <div class="panel-body"><center>Welcome to Stock Page</center></div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <table class="table table-bordered table-hover">
-          <tbody>
-            <tr>
-              <td class="col-md-6">Company</td>
-              <td class="col-md-6">
-                <div class="form-group">
-                  <select name="Company" id = "Company">
-                    <option value="GME">Gamestop</option>
-                    <option value="MSFT">Microsoft</option>
-                    <option value="BA">Boeing Company</option>
-                    <option value="AAPL">Apple Inc</option>
-                    <option value="AMZN">Amazon</option>
-                    <option value="NVDA">NVIDIA Corporation</option>
-                  </select>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <button type="button" onclick="processStocksJson()">Get Data</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <center>Welcome to Stock Page</center>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
-      <div id="chartContainer"></div>
-  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered table-hover">
+            <tbody>
+              <tr>
+                <td class="col-md-6">Company</td>
+                <td class="col-md-6">
+                  <div class="form-group">
+                    <select name="Company" id="Company">
+                      <option value="GME">Gamestop</option>
+                      <option value="MSFT">Microsoft</option>
+                      <option value="BA">Boeing Company</option>
+                      <option value="AAPL">Apple Inc</option>
+                      <option value="AMZN">Amazon</option>
+                      <option value="NVDA">NVIDIA Corporation</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <button type="button" onclick="processStocksJson()">
+                    Get Data
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-  <div class="container">
-    <table class="table" id="StockData">
-      <thead>
-        <tr>
-          <th scope="col">Company-MetaData</th>
-          <th scope="col">Stock-Info</th>
-        </tr>
-      </thead>
-      <tbody>
-      	<tr>
-      		<td id = "meta-Data"></td>
-      		<td id = "time-Series"></td>
-      	</tr>
+    <div class="container">
+      <div id="chartContainer">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+    </div>
 
-      </tbody>
-    </table>
-  </div>
+    <div class="container">
+      <table class="table" id="StockData">
+        <thead>
+          <tr>
+            <th scope="col">Company-MetaData</th>
+            <th scope="col">Stock-Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="meta-Data"></td>
+            <td id="time-Series"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="container">
-    <table class="table" id="StockData">
-      <thead>
-        <tr>
-          <th scope="col">Crypto-Name</th>
-          <th scope="col">Crypto-Price</th>
-        </tr>
-      </thead>
-      <tbody>
-      	<tr>
-          <td id = "meta-Data">ETH</td>
-      		<td id = "Crypto-price"></td>
-      	</tr>
+    <div class="container">
+      <table class="table" id="StockData">
+        <thead>
+          <tr>
+            <th scope="col">Crypto-Name</th>
+            <th scope="col">Crypto-Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="meta-Data">ETH</td>
+            <td id="Crypto-price"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      </tbody>
-    </table>
-  </div>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
 
-  <script>
-    async function FormatData(value){
-      var apikey = "BVFQUSMI02E68A8Z";
-      var company = value;
-      var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey + '&datatype=csv';
-      const response = await fetch(url);
-      const data = await response.text();
-      var dataSize = data.length;
-      console.log(dataSize);
-      const table = data.split('\n').slice(1,data.length-5528);
-      table.forEach(row => {
-          const columns = row.split(',');
+      async function FormatData(value) {
+        var apikey = "BVFQUSMI02E68A8Z";
+        var company = value;
+        var url =
+          "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+          company +
+          "&apikey=" +
+          apikey +
+          "&datatype=csv";
+        const response = await fetch(url);
+        const data = await response.text();
+        var dataSize = data.length;
+        console.log(dataSize);
+        const table = data.split("\n").slice(1, data.length - 5528); // 90 days data
+        table.forEach((row) => {
+          const columns = row.split(",");
           const year = columns[0];
           const opePrice = columns[1];
           console.log(year, opePrice);
+        });
+      }
+
+      function processStocksJson() {
+        var xmlhttp = new XMLHttpRequest();
+        var apikey = "BVFQUSMI02E68A8Z";
+        var company = document.getElementById("Company").value;
+        FormatData(company);
+        var url =
+          "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+          company +
+          "&apikey=" +
+          apikey;
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var mData = JSON.parse(xmlhttp.responseText)["Meta Data"];
+            var tSeries = JSON.parse(xmlhttp.responseText)[
+              "Time Series (Daily)"
+            ];
+            var L = mData["3. Last Refreshed"];
+
+            var current = tSeries[L];
+            var metaD = JSON.stringify(mData);
+            var metaDS = JSON.parse(metaD);
+
+            var str =
+              "<td>Last Refreshed: " +
+              metaDS["3. Last Refreshed"] +
+              "</td>" +
+              "<br><td>Symbol: " +
+              metaDS["2. Symbol"] +
+              "</td>";
+
+            var str2 =
+              "<td>1. open: " +
+              current["1. open"] +
+              "</td>" +
+              "<br><td>2. high: " +
+              current["2. high"] +
+              "</td>" +
+              "<br><td>3. low: " +
+              current["3. low"] +
+              "</td>" +
+              "<br><td>4. close: " +
+              current["4. close"] +
+              "</td>" +
+              "<br><td>5. volume: " +
+              current["5. volume"] +
+              "</td>";
+
+            document.getElementById("meta-Data").innerHTML = str;
+            document.getElementById("time-Series").innerHTML = str2;
+          }
+        };
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+      }
+
+      let ws = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
+      let stockPriceElement = document.getElementById("Crypto-price");
+      let lastPrice = null;
+      ws.onmessage = (event) => {
+        let stockObject = JSON.parse(event.data);
+        let price = parseFloat(stockObject.p).toFixed(2);
+        stockPriceElement.innerHTML = "€" + price;
+
+        stockPriceElement.style.color =
+          !lastPrice || lastPrice == price
+            ? "black"
+            : price > lastPrice
+            ? "green"
+            : "red";
+        lastPrice = price;
+      };
+
+      $(document).ready(function () {
+        $.get("username").done(function (data, status) {
+          var obj = JSON.parse(data);
+          var username = obj.res.name.toUpperCase();
+          document.getElementById("username").innerHTML = username;
+        });
       });
-
-    }
-          
-
-    function processStocksJson(){
-            var xmlhttp = new XMLHttpRequest();
-        		var apikey = "BVFQUSMI02E68A8Z";
-            var company = document.getElementById('Company').value;
-            FormatData(company);
-        		var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey;
-        xmlhttp.onreadystatechange = function() {
-        			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        				var mData = JSON.parse(xmlhttp.responseText)['Meta Data'];
-        				var tSeries = JSON.parse(xmlhttp.responseText)['Time Series (Daily)'];
-                var L = mData['3. Last Refreshed'];
-                
-                var current = tSeries[L];
-                var metaD = JSON.stringify(mData);
-                var metaDS = JSON.parse(metaD);
-
-                var str = "<td>Last Refreshed: " + metaDS["3. Last Refreshed"] + "</td>" +
-                          "<br><td>Symbol: " + metaDS["2. Symbol"] + "</td>";
-
-                var str2 = "<td>1. open: " + current["1. open"] + "</td>" +
-                          "<br><td>2. high: " + current["2. high"] + "</td>"+
-                          "<br><td>3. low: " + current["3. low"] + "</td>" + 
-                          "<br><td>4. close: " + current["4. close"] + "</td>" +
-                          "<br><td>5. volume: " + current["5. volume"] + "</td>";
-
-                document.getElementById('meta-Data').innerHTML = str; 
-        				document.getElementById('time-Series').innerHTML = str2;
-			        }
-        	 
-	      }
-
-		xmlhttp.open("GET",url,true);
-		xmlhttp.send();
-	 }
-
-   let ws = new WebSocket('wss://stream.binance.com:9443/ws/etheur@trade');
-   let stockPriceElement = document.getElementById('Crypto-price');
-   let lastPrice = null;
-   ws.onmessage = (event) => {
-     let stockObject = JSON.parse(event.data);
-     let price = parseFloat(stockObject.p).toFixed(2);
-     stockPriceElement.innerHTML ="€"+ price;
-     
-     stockPriceElement.style.color = !lastPrice || lastPrice == price ? 'black': price > lastPrice ? "green":"red";
-     lastPrice = price;
-   };
-
-   $(document).ready(function(){
-
-      $.get('username').done(function(data, status){
-        var obj = JSON.parse(data);
-        var username  = (obj.res.name).toUpperCase();
-        document.getElementById("username").innerHTML = username;
-      });
-   });
-
-  </script>
-</body>
+    </script>
+  </body>
 </html>
