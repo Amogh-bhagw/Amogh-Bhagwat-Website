@@ -152,9 +152,11 @@
     <script>
       const xlabels = [];
       const yPrice = [];
+      const myChart = {};
       function graphData(){
         const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
+        if(myChart instanceof Chart){myChart.destroy()}
+        myChart = new Chart(ctx, {
           type: "line",
           data: {
             labels: xlabels.reverse(),
@@ -191,7 +193,7 @@
         const data = await response.text();
         var dataSize = data.length;
         console.log(dataSize);
-        const table = data.split("\n").slice(1, data.length - 5528); // 90 days data
+        const table = data.split("\n").slice(1, data.length - (dataSize-90)); // 90 days data
         table.forEach((row) => {
           const columns = row.split(",");
           const year = columns[0];
