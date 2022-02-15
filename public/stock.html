@@ -204,6 +204,8 @@
       }
 
       function processStocksJson() {
+        xlabels.splice(0, xlabels.length);
+        yPrice.splice(0, yPrice.length);
         var xmlhttp = new XMLHttpRequest();
         var apikey = "BVFQUSMI02E68A8Z";
         var company = document.getElementById("Company").value;
