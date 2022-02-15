@@ -138,7 +138,7 @@
       const data = await response.text();
       var dataSize = data.length;
       console.log(dataSize);
-      const table = data.split('\n').slice(1,data.length-5588);
+      const table = data.split('\n').slice(1,data.length-5528);
       table.forEach(row => {
           const columns = row.split(',');
           const year = columns[0];
