@@ -155,10 +155,10 @@
       const myChart = new Chart(ctx, {
         type: "bar",
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: xlabels,
           datasets: [
             {
-              label: xlabels,
+              label: "# of Votes",
               data: [12, 19, 3, 5, 2, 3],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
@@ -206,7 +206,7 @@
         table.forEach((row) => {
           const columns = row.split(",");
           const year = columns[0];
-          xlabels.push(year);  
+          xlabels.push(year);
           const opePrice = columns[1];
           console.log(year, opePrice);
         });
