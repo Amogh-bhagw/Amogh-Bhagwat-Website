@@ -152,9 +152,11 @@
     <script>
       const xlabels = [];
       const yPrice = [];
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart;
       function graphData(){
-        const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
+        //const ctx = document.getElementById("myChart").getContext("2d");
+         myChart = new Chart(ctx, {
           type: "line",
           data: {
             labels: xlabels.reverse(),
@@ -204,6 +206,7 @@
       }
 
       function processStocksJson() {
+        myChart.destroy();
         xlabels.splice(0, xlabels.length);
         yPrice.splice(0, yPrice.length);
         var xmlhttp = new XMLHttpRequest();
