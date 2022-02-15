@@ -131,17 +131,18 @@
 
   <script>
     async function FormatData(value){
-      console.log("HELLO I am here");
       var apikey = "BVFQUSMI02E68A8Z";
       var company = value;
       var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey + '&datatype=csv';
       const response = await fetch(url);
       const data = await response.text();
-      const table = data.split('\n').slice(1,data.length-2);
-      table.forEach(elem => {
-          const rows = elem.split(',');
-          const year = rows[0];
-          const opePrice = rows[1];
+      var dataSize = data.length;
+      console.log(dataSize);
+      const table = data.split('\n').slice(1,data.length-4);
+      table.forEach(row => {
+          const columns = row.split(',');
+          const year = columns[0];
+          const opePrice = columns[1];
           console.log(year, opePrice);
       });
 
@@ -149,7 +150,6 @@
           
 
     function processStocksJson(){
-      console.log("HELLO I am here....");
             var xmlhttp = new XMLHttpRequest();
         		var apikey = "BVFQUSMI02E68A8Z";
             var company = document.getElementById('Company').value;
