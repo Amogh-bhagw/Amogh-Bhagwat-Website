@@ -135,13 +135,12 @@
       var apikey = "BVFQUSMI02E68A8Z";
       var company = value;
       var url ='https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + company + '&apikey=' + apikey + '&datatype=csv';
-    //  https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv
       const response = await fetch(url);
       const data = await response.text();
-      const table = data.split('\n');
+      const table = data.split('\n').slice(1);
       table.forEach(elem => {
           const rows = elem.split(',');
-          console.log(rows);
+          console.log(rows[0]);
           //const year = rows[0];
           //const opePrice = rows[1];
       });
