@@ -151,16 +151,17 @@
 
     <script>
       const xlabels = [];
+      const yPrice = [];
       function graphData(){
         const ctx = document.getElementById("myChart").getContext("2d");
         const myChart = new Chart(ctx, {
           type: "line",
           data: {
-            labels: xlabels,
+            labels: xlabels.reverse(),
             datasets: [
               {
                 label: "# of Votes",
-                data: [12, 19, 3, 5, 2, 3],
+                data: yPrice.reverse(),
                 backgroundColor: ["rgba(255, 99, 132, 0.2)"],
                 borderColor: ["rgba(255, 99, 132, 1)"],
                 borderWidth: 1,
@@ -196,6 +197,7 @@
           const year = columns[0];
           xlabels.push(year);
           const opePrice = columns[1];
+          yPrice.push(opePrice);
           console.log(year, opePrice);
         });
         graphData();
