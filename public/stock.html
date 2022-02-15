@@ -155,7 +155,7 @@
       const myChart = {};
       function graphData(){
         const ctx = document.getElementById("myChart").getContext("2d");
-        if(myChart instanceof Chart){myChart.destroy()}
+        if(myChart instanceof Chart){myChart.destroy();}
         myChart = new Chart(ctx, {
           type: "line",
           data: {
