@@ -190,8 +190,10 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var mData = JSON.parse(xmlhttp.responseText);
+            var mData = xmlhttp.responseText;
+            var Data = mData.text()
             console.log(mData);
+            console.log(Data);
           }
         }; 
         xmlhttp.open("GET", url, true);
