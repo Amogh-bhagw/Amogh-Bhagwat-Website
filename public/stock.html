@@ -196,11 +196,12 @@
             table.forEach((row) => {
                 const columns = row.split(",");
                 const year = columns[0];
-                //xlabels.push(year);
+                xlabels.push(year);
                 const opePrice = columns[1];
-                //yPrice.push(opePrice);
+                yPrice.push(opePrice);
                 console.log(year, opePrice);
             });
+            graphData();
           }
         }; 
         xmlhttp.open("GET", url, true);
