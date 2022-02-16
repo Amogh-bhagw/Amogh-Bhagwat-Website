@@ -183,7 +183,8 @@
           options: {
             scales: {
               y: {
-                beginAtZero: true,
+                suggestedMin: (yPrice[0]-50),
+                suggestedMax: (yPrice[yPrice.length-1]+50),
               },
             },
           },
