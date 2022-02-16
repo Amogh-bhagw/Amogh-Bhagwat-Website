@@ -191,7 +191,7 @@
         xmlhttp.onreadystatechange = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             const data = xmlhttp.responseText;
-            const table = data.split("\n").slice(1, data.length - (dataSize-90)); 
+            const table = data.split("\n").slice(1, data.length - (data.length-90)); 
             console.log(table);
           }
         }; 
