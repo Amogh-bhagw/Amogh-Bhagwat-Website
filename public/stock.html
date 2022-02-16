@@ -156,7 +156,11 @@
       const myChart = {};
       function graphData(){
         const ctx = document.getElementById("myChart").getContext("2d");
-        if(myChart instanceof Chart){myChart.destroy();}
+        if(myChart instanceof Chart){
+          myChart.destroy();
+          console.log("I have been deleted");
+        }
+       
         myChart = new Chart(ctx, {
           type: "line",
           data: {
@@ -185,21 +189,17 @@
         var apikey = "BVFQUSMI02E68A8Z";
         var company = value;
         var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + company + "&apikey=" + apikey + "&datatype=csv";
-        //const response = await fetch(url);
-        //const data = await response.text();
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             const data = xmlhttp.responseText;
             const table = data.split("\n").slice(1, data.length - (data.length-90)); 
-            //console.log(table);
             table.forEach((row) => {
                 const columns = row.split(",");
                 const year = columns[0];
                 xlabels.push(year);
                 const opePrice = columns[1];
                 yPrice.push(opePrice);
-                console.log(year, opePrice);
             });
             graphData();
           }
