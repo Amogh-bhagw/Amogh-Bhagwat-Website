@@ -150,6 +150,7 @@
     </div>
 
     <script>
+      //Graph creating script
       const xlabels = [];
       const yPrice = [];
       const myChart = {};
@@ -180,18 +181,25 @@
         });
       }
 
-      async function FormatData(value) {
+      function FormatData(value) {
         var apikey = "BVFQUSMI02E68A8Z";
         var company = value;
-        var url =
-          "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
-          company +
-          "&apikey=" +
-          apikey +
-          "&datatype=csv";
-        const response = await fetch(url);
-        const data = await response.text();
-        var dataSize = data.length;
+        var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + company + "&apikey=" + apikey + "&datatype=csv";
+        //const response = await fetch(url);
+        //const data = await response.text();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var mData = JSON.parse(xmlhttp.responseText);
+            console.log(mData);
+          }
+        }; 
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+      }
+        
+        
+      /*  var dataSize = data.length;
         console.log(dataSize);
         const table = data.split("\n").slice(1, data.length - (dataSize-90)); // 90 days data
         table.forEach((row) => {
@@ -202,9 +210,9 @@
           yPrice.push(opePrice);
           console.log(year, opePrice);
         });
-        graphData();
-      }
-
+        graphData();*/
+      
+      //To process the Stock data
       function processStocksJson() {
         xlabels.splice(0, xlabels.length);
         yPrice.splice(0, yPrice.length);
@@ -263,6 +271,11 @@
         xmlhttp.send();
       }
 
+
+
+
+
+      // Eth script
       let ws = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
       let stockPriceElement = document.getElementById("Crypto-price");
       let lastPrice = null;
