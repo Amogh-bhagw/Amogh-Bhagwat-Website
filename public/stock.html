@@ -36,6 +36,10 @@
         align-items: center;
         font: 20px "Montserrat", sans-serif;
       }
+      canvas {
+        width: 200px;
+        height: 200px;
+      }
     </style>
   </head>
 
@@ -111,7 +115,7 @@
 
     <div class="container">
       <div id="chartContainer">
-        <canvas id="myChart" style="width: 100px; height: 100px;"></canvas>
+        <canvas id="myChart"></canvas>
       </div>
     </div>
 
@@ -168,7 +172,7 @@
             labels: xlabels.reverse(),
             datasets: [
               {
-                label: "# of Votes",
+                label: "Open Price For The Last 90 Days",
                 data: yPrice.reverse(),
                 backgroundColor: ["rgba(255, 99, 132, 0.2)"],
                 borderColor: ["rgba(255, 99, 132, 1)"],
@@ -208,21 +212,7 @@
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
       }
-        
-        
-      /*  var dataSize = data.length;
-        console.log(dataSize);
-        const table = data.split("\n").slice(1, data.length - (dataSize-90)); // 90 days data
-        table.forEach((row) => {
-          const columns = row.split(",");
-          const year = columns[0];
-          xlabels.push(year);
-          const opePrice = columns[1];
-          yPrice.push(opePrice);
-          console.log(year, opePrice);
-        });
-        graphData();*/
-      
+           
       //To process the Stock data
       function processStocksJson() {
         xlabels.splice(0, xlabels.length);
@@ -281,10 +271,6 @@
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
       }
-
-
-
-
 
       // Eth script
       let ws = new WebSocket("wss://stream.binance.com:9443/ws/etheur@trade");
