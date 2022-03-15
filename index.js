@@ -130,7 +130,6 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
         });
     
     app.post('/ledgerAdd', function(req, res){
-        alert(req);
         res.send("Hello");
     });
 
