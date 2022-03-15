@@ -269,6 +269,12 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             }
     });
 
+    app.post("/ledgerAdd", function(req, res){
+        alert("inside ledger Add " + req);
+        var response = "Hello";
+        res.send(response);
+    });
+
 
     app.get('*', function(req, res) {
         res.sendStatus(404);
