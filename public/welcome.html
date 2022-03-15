@@ -148,12 +148,12 @@
     $(document).ready(function(){
      $("#submit").click(function(e){
       e.preventDefault();
-       $.post("/ledgerAdd",{
+       $.post("ledgerAdd",{
           name: $("#name").val(),
           company: $("#company").val()
-
-       }, function(data){
-          alert("Data " + data);
+       }, 
+       function(data){
+          alert("hellooo");
        });
     });
   });

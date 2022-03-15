@@ -128,6 +128,11 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
                 }
             });
         });
+    
+    app.post('/ledgerAss', function(req, res){
+        alert("here in the ledger");
+
+    });
 
     app.get('/getContacts', function(req, res){
             
@@ -268,13 +273,6 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             res.redirect(302, '/login');
             }
     });
-
-    app.post("/ledgerAdd", function(req, res){
-        alert("inside ledger Add " + req);
-        var response = "Hello";
-        res.send(response);
-    });
-
 
     app.get('*', function(req, res) {
         res.sendStatus(404);
