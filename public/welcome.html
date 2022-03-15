@@ -148,11 +148,15 @@
     $(document).ready(function(){
      $("#submit").click(function(e){
       e.preventDefault();
-       $.post("ledgerAdd",{
-          name: $("#name").val(),
-          company: $("#company").val()
+      let name = $("#name").val();
+      let company = $("#company").val();
+
+       $.post('ledgerAdd',
+       {
+          "name": name,
+          "company": company 
        }, 
-       function(data){
+       (data)=>{
           alert("hellooo");
        });
     });
