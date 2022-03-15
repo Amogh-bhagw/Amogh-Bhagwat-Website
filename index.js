@@ -129,7 +129,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             });
         });
     
-    app.post('/ledgerAss', function(req, res){
+    app.post('/ledgerAdd', function(req, res){
         alert("here in the ledger");
 
     });
