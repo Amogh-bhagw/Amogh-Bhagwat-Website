@@ -146,7 +146,8 @@
   </p>
   <script>
     $(document).ready(function(){
-     $("#submit").click(function(){
+     $("#submit").click(function(e){
+      e.preventDefault();
        $.post("/ledgerAdd",{
           name: $("#name").val(),
           company: $("#company").val()
