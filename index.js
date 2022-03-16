@@ -130,12 +130,16 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
         });
     
     app.post('/ledgerAdd', function(req, res){
-        var jObj = {};
-                jObj['name'] = req.body.name;
-                jObj['category'] = req.body.company;
-        
+        var name = req.body.name;
+        var company = req.body.company;
+        jObj = {};
+        jObj['name'] = name;
+        jObj['company'] = company;
+        console.log(jObj);
+
         dbCon.query('INSERT guest_list SET ?', jObj, function(err, rows, fields) {
             if (err) {
+                console.log(err);
                 throw err;
             }
         var response_Msg = {flag: true};
