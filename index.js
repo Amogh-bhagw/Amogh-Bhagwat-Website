@@ -32,9 +32,6 @@ app.use(bodyparser.urlencoded({extended: true}));  // help with parsing req body
 // fs module - provides an API for interacting with the file system
 var fs = require("fs");
 
-// used to append ledger.txt
-const dataLedger = fs.readFileSync('ledger.txt', 'utf8');
-
 // required for reading XML files
 const dbCon = mysql.createPool({
     connectionLimit: 100,
