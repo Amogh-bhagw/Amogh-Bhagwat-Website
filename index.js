@@ -133,17 +133,17 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
         });
     
     app.post('/ledgerAdd', function(req, res){
-        var name = req.body.name;
-        var company = req.body.company;
-        var str = "Name: " + name + " Company: " + company + "\n" + dataLedger;
+        var jObj = {};
+                jObj['name'] = req.body.name;
+                jObj['category'] = req.body.company;
         
-        fs.writeFile('ledger.txt', str, err => {
-            if(err){
-                console.error(err);
-                res.send("error");
+        dbCon.query('INSERT guest_list SET ?', jObj, function(err, rows, fields) {
+            if (err) {
+                throw err;
             }
+        var response_Msg = {flag: true};
+        res.send(response_Msg);
         });
-        res.send("Hello");
     });
 
     app.get('/getContacts', function(req, res){
