@@ -283,6 +283,11 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             }
     });
 
+     app.get('/HiddenList', function(req, res){
+        const message = '<h1>hello<h1>';
+        res.send(message);
+    });
+
     app.get('*', function(req, res) {
         res.sendStatus(404);
     });
