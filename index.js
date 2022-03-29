@@ -83,11 +83,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
     });
 
     app.get('/game', function(req, res) {
-        if(!req.session.value){
-          res.redirect(302, '/login');
-      } else {
-       res.sendFile(path.join(__dirname, 'public/Game.html'));
-       }
+       res.sendFile(path.join(__dirname, 'public/Movle/movle.html'));
    });
 
     app.get('/login', function(req, res) {
