@@ -284,6 +284,13 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
     });
 
      app.get('/HiddenList', function(req, res){
+         dbCon.query('SELECT * FROM guest_list', function(err, rows, fields){
+             if(err) {
+                 throw err;
+             } else {
+                 console.log(rows+''+fields)
+             }
+         });
         const message = '<h1>hello<h1>';
         res.send(message);
     });
