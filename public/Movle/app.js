@@ -2,7 +2,7 @@ const tileDisplay = document.querySelector('.tile-container');
 const keyDisplay = document.querySelector('.key-container');
 const messageDisplay = document.querySelector('.message-container');
 
-const word = "CRASH";
+const word = "DRIVE";
 const keys = [
     'Q',
     'W',
@@ -182,3 +182,26 @@ const flipTile = () => {
         }, 500 * index)
     })
 }
+
+
+
+
+
+
+
+
+
+   
+/*
+function getListMovies() {
+    fetch(URL).then(res => res.json()).then(data =>{
+        var movies = data.results
+        movies.forEach((entry) => {
+            var movieTitle = entry.title;
+            if(movieTitle.length  > 4 && movieTitle.length < 10){
+            console.log(entry.title);}
+        })
+    })
+}
+
+getListMovies();*/

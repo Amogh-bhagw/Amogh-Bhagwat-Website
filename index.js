@@ -31,6 +31,7 @@ app.use(bodyparser.urlencoded({extended: true}));  // help with parsing req body
 
 // fs module - provides an API for interacting with the file system
 var fs = require("fs");
+const { JSON } = require('mysql/lib/protocol/constants/types');
 
 // required for reading XML files
 const dbCon = mysql.createPool({
@@ -41,7 +42,7 @@ const dbCon = mysql.createPool({
     database: "heroku_ba8710f68fd386d",           // replace with the database user provided to you
     port: 3306
 });
-   
+
 
 // Use express-session
 // In-memory session is sufficient for this assignment
@@ -282,18 +283,21 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             res.redirect(302, '/login');
             }
     });
-
+/*
      app.get('/HiddenList', function(req, res){
+         var message;
          dbCon.query('SELECT * FROM guest_list', function(err, rows, fields){
              if(err) {
                  throw err;
              } else {
-                 console.log(rows+''+fields)
+                 rows.forEach(element => {
+                     console.log(element.name)
+                     
+                 });
              }
          });
-        const message = '<h1>hello<h1>';
         res.send(message);
-    });
+    });*/
 
     app.get('*', function(req, res) {
         res.sendStatus(404);
