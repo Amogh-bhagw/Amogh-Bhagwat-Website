@@ -31,7 +31,6 @@ app.use(bodyparser.urlencoded({extended: true}));  // help with parsing req body
 
 // fs module - provides an API for interacting with the file system
 var fs = require("fs");
-const { JSON } = require('mysql/lib/protocol/constants/types');
 
 // required for reading XML files
 const dbCon = mysql.createPool({
@@ -126,7 +125,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             });
         });
     
-   /* app.post('/ledgerAdd', function(req, res){
+   app.post('/ledgerAdd', function(req, res){
         var name = req.body.name;
         var company = req.body.company;
         jObj = {};
@@ -142,7 +141,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
         var response_Msg = {flag: true};
         res.send(response_Msg);
         });
-    });*/
+    });
 
     app.get('/getContacts', function(req, res){
             
