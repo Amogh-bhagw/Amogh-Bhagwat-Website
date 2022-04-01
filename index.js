@@ -126,7 +126,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             });
         });
     
-    app.post('/ledgerAdd', function(req, res){
+   /* app.post('/ledgerAdd', function(req, res){
         var name = req.body.name;
         var company = req.body.company;
         jObj = {};
@@ -142,7 +142,7 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
         var response_Msg = {flag: true};
         res.send(response_Msg);
         });
-    });
+    });*/
 
     app.get('/getContacts', function(req, res){
             
@@ -283,21 +283,6 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
             res.redirect(302, '/login');
             }
     });
-/*
-     app.get('/HiddenList', function(req, res){
-         var message;
-         dbCon.query('SELECT * FROM guest_list', function(err, rows, fields){
-             if(err) {
-                 throw err;
-             } else {
-                 rows.forEach(element => {
-                     console.log(element.name)
-                     
-                 });
-             }
-         });
-        res.send(message);
-    });*/
 
     app.get('*', function(req, res) {
         res.sendStatus(404);

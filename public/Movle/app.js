@@ -185,23 +185,51 @@ const flipTile = () => {
 
 
 
+var num;
 
-
-
-
-
-
-   
-/*
-function getListMovies() {
-    fetch(URL).then(res => res.json()).then(data =>{
-        var movies = data.results
-        movies.forEach((entry) => {
-            var movieTitle = entry.title;
-            if(movieTitle.length  > 4 && movieTitle.length < 10){
-            console.log(entry.title);}
-        })
-    })
+function randomNumber() {
+    num = (Math.floor(Math.random() * 5000)) + 1; 
 }
 
-getListMovies();*/
+randomNumber()
+console.log(num)
+var URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
+   
+
+
+
+function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        try {
+            var movies = JSON.parse(this.response);
+            console.log(movies.title.split(" ").join(""));
+            if(movies.original_language != 'en' || movies.title.length < 4 || movies.title.length > 10){
+                randomNumber()
+                console.log(num)
+                URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
+                xhttp.open("GET", URL);
+                xhttp.send();
+               } 
+        } catch (e) {
+            console.log('Invalid json')
+            randomNumber()
+            console.log(num)
+            URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
+            xhttp.open("GET", URL);
+            xhttp.send();
+        }
+      }
+      if(this.status == 404){
+        randomNumber()
+        console.log(num)
+        URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
+        xhttp.open("GET", URL);
+        xhttp.send();
+      }
+    };
+    xhttp.open("GET", URL);
+    xhttp.send();
+  }
+  loadDoc();
