@@ -35,12 +35,17 @@
         </div>
         <input type="submit"value="Submit!">
         <div>
+            <p id = "Guest">Guest</p>
             <p id = "Code-ID" onclick="ChangeVis()">Forgot Password or Username?</p>
             <p id = "Code" style="visibility: hidden;">Username: amogh Password: salsa</p>
         </div>
     </form>
 
     <script>
+        $('#Guest').click(function (){ 
+            $.get('guest')
+        });
+
         var changer = 1;
         function ChangeVis() {
             if(changer == 1){

@@ -124,6 +124,15 @@ app.listen(process.env.PORT || port,() => console.log('Listening...'));
                 }
             });
         });
+
+    app.get('/guest', function(req, res){
+        if(req.session.value){
+            res.redirect(302, '/contacts');
+        } else {
+            req.session.value = 1;
+            res.redirect(302, '/contacts');
+        }
+    });
     
    app.post('/ledgerAdd', function(req, res){
         var name = req.body.name;
