@@ -2,7 +2,7 @@ const tileDisplay = document.querySelector('.tile-container');
 const keyDisplay = document.querySelector('.key-container');
 const messageDisplay = document.querySelector('.message-container');
 
-const word = "DRIVE";
+const word = "FARGO";
 const keys = [
     'Q',
     'W',
@@ -197,7 +197,7 @@ var URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7
    
 
 
-
+/*
 function loadDoc() {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -232,4 +232,4 @@ function loadDoc() {
     xhttp.open("GET", URL);
     xhttp.send();
   }
-  loadDoc();
+  loadDoc();*/
