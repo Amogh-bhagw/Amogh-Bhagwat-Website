@@ -54,7 +54,7 @@ function loadDoc() {
 
 
 
-
+window.alert("Takes 8 sec to get everything set up. Thank you for waiting")
 
 
 
