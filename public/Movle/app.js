@@ -23,7 +23,7 @@ function loadDoc() {
         try {
             var movies = JSON.parse(this.response);
             var movieTitle = movies.title.split(" ").join("");
-            if(movies.original_language != 'en' || movies.title.length < 4 || movies.title.length > 7){
+            if(movies.original_language != 'en' || movies.title.length < 4 || movies.title.length > 8){
                 randomNumber()
                 
                 URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
@@ -50,20 +50,9 @@ function loadDoc() {
     xhttp.send();
   }
  loadDoc();
-  
-
-
-
-window.alert("Takes 8 sec to get everything set up. Thank you for waiting")
-
-
-
-
-
-
-
-
-
+function off() {
+    document.getElementById('overlay-message').style.display = 'none';
+}  
 
 const keys = [
     'Q',
