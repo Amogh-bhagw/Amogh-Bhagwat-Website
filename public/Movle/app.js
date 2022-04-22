@@ -3,11 +3,10 @@ const keyDisplay = document.querySelector('.key-container');
 const messageDisplay = document.querySelector('.message-container');
 
 var word;
-
 var num;
 
 function randomNumber() {
-    num = (Math.floor(Math.random() * 5000)) + 1; 
+    num = (Math.floor(Math.random() * 1000000)) + 1; 
 }
 
 randomNumber()
@@ -22,13 +21,16 @@ function loadDoc() {
       if (this.readyState == 4 && this.status == 200) {
         try {
             var movies = JSON.parse(this.response);
+            console.log(movies)
             var movieTitle = movies.title.split(" ").join("");
-            if(movies.original_language != 'en' || movies.title.length < 4 || movies.title.length > 8){
-                randomNumber()
+            if(movies.original_language != 'en' || movies.title.length < 4 
+                || movies.title.length > 8){
                 
-                URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
-                xhttp.open("GET", URL);
-                xhttp.send();
+                    randomNumber()
+                    
+                    URL = 'https://api.themoviedb.org/3/movie/' + num + '?api_key=b4c17083a77fc7ae1bb0fba4799a600a&language=en-US'
+                    xhttp.open("GET", URL);
+                    xhttp.send();
                } else {
                    word = movieTitle.toUpperCase()
                }
